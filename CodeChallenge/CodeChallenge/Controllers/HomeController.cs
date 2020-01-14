@@ -46,7 +46,7 @@ namespace CodeChallenge.Controllers
         public async Task<IActionResult> Task2()
         {
             // #TODO: Assign the API key obtain from task #1 here.
-            var apiKey = "YOLOBlackOps";
+            var apiKey = "";
 
             if (string.IsNullOrEmpty(apiKey))
             {

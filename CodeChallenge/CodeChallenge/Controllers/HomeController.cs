@@ -55,7 +55,7 @@ namespace CodeChallenge.Controllers
 
             var assetList = await _terminalService.RetrieveAssetList(apiKey);
 
-            // #TODO: From the list of assets, find the following assets that meet the required criteria
+            // #TODO: Redo the view model property values assignment below, so that the lists actually match the criteria
             var viewModel = new Task2ViewModel
             {
                 Top4MostQuantityAssets = assetList,

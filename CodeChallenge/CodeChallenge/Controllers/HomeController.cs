@@ -48,6 +48,11 @@ namespace CodeChallenge.Controllers
             // #TODO: Assign the API key obtain from task #1 here.
             var apiKey = "";
 
+            if (string.IsNullOrEmpty(apiKey))
+            {
+                return View();
+            }
+
             var assetList = await _terminalService.RetrieveAssetList(apiKey);
 
             // #TODO: From the list of assets, find the following assets that meet the required criteria
@@ -62,6 +67,8 @@ namespace CodeChallenge.Controllers
 
         public async Task<IActionResult> Task3()
         {
+            // Note from RexGex: for now, I'm just gonna put a blanket try-catch statement for this task, so the page will at least render.
+            // #TODO: Remove the try-catch statement once the task is completed.
             try
             {
                 var apiKey = "";
@@ -72,11 +79,11 @@ namespace CodeChallenge.Controllers
 
                 // #TODO: Assign the asset Id here
                 long? assetIdWithNulls = null;
-                
+
                 // Retrieve the history log. Note that the log entries may not be sorted.
-                var response = await _terminalService.RetrieveAssetHistoryLog(apiKey, assetIdWithNulls); 
+                var response = await _terminalService.RetrieveAssetHistoryLog(apiKey, assetIdWithNulls);
                 var historyLog = JsonConvert.DeserializeObject<IReadOnlyList<Task3GetAssetHistoryLogResponse>>(response);
-                
+
                 // #TODO: Find the last user that made changes to this asset based on history log
 
                 // #TODO: Assign UserId, first name, last name of that user onto the view model below.
@@ -87,8 +94,6 @@ namespace CodeChallenge.Controllers
                     UserLastName = ""
                 });
             }
-            // Note from RexGex: for now, I'm just gonna put a blanket check for this task, so the page will at least render.
-            // The code shouldn't come down here if all goes well.
             catch
             {
                 return View();
@@ -97,26 +102,35 @@ namespace CodeChallenge.Controllers
 
         public async Task<IActionResult> Task4()
         {
-            // #TODO: Put an access code provided by the terminal from task 3 validator here
-            var acccessCode = "";
-
-            // #TODO: Assign the perpetrator key in format of {userId}-{userFirstName}-{userLastName} here (without curly braces)
-            var userKey = "";
-
-            var response = await _terminalService.RetrieveSuspectInfo(acccessCode, userKey);
-
-            return View(new Task4ViewModel
+            // Note from RexGex: for now, I'm just gonna put a blanket try-catch statement for this task, so the page will at least render.
+            // #TODO: Remove the try-catch statement once the task is completed.
+            try
             {
-                HiredDate = response.HiredDate,
-                LastUserLocationLat = response.LastUserLocationLat,
-                LastUserLocationLon = response.LastUserLocationLon,
-                UserDepartmentCode = response.DepartmentCode,
-                UserFirstName = response.FirstName,
-                UserLastName = response.LastName,
-                UserId = response.UserId,
-                UserImageUrl = response.ImageUrl,
-                UserJobTitle = response.JobTitle
-            });
+                // #TODO: Put an access code provided by the terminal's task 3 validator here
+                var acccessCode = "";
+
+                // #TODO: Assign the perpetrator key in format of {userId}-{userFirstName}-{userLastName} here (without curly braces)
+                var userKey = "";
+
+                var response = await _terminalService.RetrieveSuspectInfo(acccessCode, userKey);
+
+                return View(new Task4ViewModel
+                {
+                    HiredDate = response.HiredDate,
+                    LastUserLocationLat = response.LastUserLocationLat,
+                    LastUserLocationLon = response.LastUserLocationLon,
+                    UserDepartmentCode = response.DepartmentCode,
+                    UserFirstName = response.FirstName,
+                    UserLastName = response.LastName,
+                    UserId = response.UserId,
+                    UserImageUrl = response.ImageUrl,
+                    UserJobTitle = response.JobTitle
+                });
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         public IActionResult MissionComplete()

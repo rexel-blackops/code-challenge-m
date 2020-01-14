@@ -1,0 +1,73 @@
+﻿@model Task2ViewModel
+@{
+    ViewData["Title"] = "Task #2";
+}
+
+<div>
+    <h1 class="display-4 text-center">Task #2: Analyze Assets</h1>
+    <div>Prior the disappearance of Agent RexGex, we had requested him to retrive the list of assets with the API key provided by our mole. Our analyst team need to find a few assets for further investigation.</div>
+    <ol>
+        <li>Take the API key obtained from the previous and assign to the HomeController action Task2.</li>
+        <li>With the correct API key, you should receive the list of assets that will need to be sent to our analytics team.</li>
+        <li>Debug the code on HomeController.cs to the sub lists of assets below are being filtered and sorted correctly. There should be no more than 4 entries for each criteria</li>
+        <li>Observe the two sub lists, go back to the terminal and type, <span class="terminal-code">validate task2 {Id of the highest asset value},{Id of the highest asset quantity}</span> (without the curly braces)".</li>
+        <li>Click Next once the terminal gives you the green light.</li>
+    </ol>
+</div>
+<div>
+    <h2>Top 4 Assets with Most Value per Unit</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Value</th>
+                <th scope="col">Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var asset in Model.Top4MostValuableAssets)
+            {
+                <tr>
+                    <td>@asset.Id</td>
+                    <td>@asset.Name</td>
+                    <td>@string.Format("${0:#,#.0000}", asset.Value)</td>
+                    <td>@string.Format("{0:#,#}", asset.Quantity)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <h2>Top 4 Assets with Most Quantities</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Value</th>
+                <th scope="col">Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var asset in Model.Top4MostQuantityAssets)
+            {
+                <tr>
+                    <td>@asset.Id</td>
+                    <td>@asset.Name</td>
+                    <td>@string.Format("${0:#,#.0000}", asset.Value)</td>
+                    <td>@string.Format("{0:#,#}", asset.Quantity)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="text-center">
+    <a class="btn btn-primary" href="@Url.Action("Task1", "Home")" role="button">Back</a>
+    @if (Model.Top4MostQuantityAssets.Count() + Model.Top4MostValuableAssets.Count() == 8)
+    {
+        <a class="btn btn-primary" href="@Url.Action("Task3", "Home")" role="button">Next</a>
+    }
+    else
+    {
+        <button type="button" class="btn btn-secondary disabled" href="#" role="button">Next</button>
+    }
+</div>

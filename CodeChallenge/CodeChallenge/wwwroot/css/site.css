@@ -1,0 +1,128 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+/* Black Ops stuff
+-------------------------------------------------- */
+nav > div > h1 {
+    background-color: darkgray;
+    box-shadow: 5px 5px black;
+    margin: auto;
+    width: 100%;
+    color: blue;
+}
+
+h1, h2 {
+    border-style: double;
+    border-color: white;
+    color: yellow;
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-shadow: 5px 5px gray;
+}
+
+body {
+    color: black;
+    background-color: #00a;
+}
+
+    body > div.container {
+        border-width: 5px;
+        border-color: white;
+        border-style: double;
+        background-color: darkgray;
+        box-shadow: 10px 10px black;
+    }
+
+    body > header > nav > div {
+        background-color: #00a;
+    }
+
+.btn-primary, button.disabled {
+    background-color: #0e7a0d;
+    border-color: #0e7a0d;
+    border-radius: 0px;
+    box-shadow: 5px 5px black;
+}
+
+.table th {
+    color: yellow;
+}
+
+table, th, td, .table th, .table td {
+    border: 3px dashed white;
+    box-shadow: 5px 5px gray;
+}
+
+footer {
+    color: #0e7a0d;
+    text-align: center;
+}
+
+input.form-control {
+    border-radius: 0px;
+    box-shadow: 5px 5px gray;
+}
+
+.terminal-code {
+    background-color: gray;
+    color: yellow;
+}

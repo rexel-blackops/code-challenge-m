@@ -82,6 +82,7 @@ h1, h2 {
 body {
     color: black;
     background-color: #00a;
+    font-family: Consolas,monaco,monospace;
 }
 
     body > div.container {
@@ -113,8 +114,10 @@ table, th, td, .table th, .table td {
 }
 
 footer {
-    color: #0e7a0d;
+    text-transform: uppercase;
+    color: white;
     text-align: center;
+    background-color: #bb0000;
 }
 
 input.form-control {

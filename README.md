@@ -1,7 +1,7 @@
 # Rexel Black Ops Code Challenge
 ---------------------------
 ## Instructions
-* As part of the code challegnge, please keep the terminal https://codechallenge.rexelapps.com/ open. If you accidentally close it, simply open it back and enter the same secret token that was provided to you. You will need to use the terminal to validate the works in each task.
+* As part of the code challenge, please keep the terminal https://codechallenge.rexelapps.com/ open. If you accidentally close it, simply open it back and enter the same secret token that was provided to you. You will need to use the terminal to validate the works in each task.
 
 * You will submit a small project .NET Core project. While the project domain is entirely fictional, and the tasks you complete are rather contrived, the code you will need to write to complete the tasks has many parallels to code written in real-world business situations. Write and structure your code with the same care you would apply in a real-world business application.
 

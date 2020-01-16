@@ -20,6 +20,12 @@ namespace CodeChallenge.Controllers
 
         public IActionResult Index()
         {
+            // #TODO: If you want to skip to the specific page, just uncomment one of the following lines (one line only!)
+            // return RedirectToAction("Task1", "Home"); // Uncomment here to skip to Task #1
+            // return RedirectToAction("Task2", "Home"); // Uncomment here to skip to Task #2
+            // return RedirectToAction("Task3", "Home"); // Uncomment here to skip to Task #3
+            // return RedirectToAction("Task4", "Home"); // Uncomment here to skip to Task #4
+
             return View();
         }
 

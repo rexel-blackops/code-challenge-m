@@ -10,7 +10,7 @@
         <li>Find out which asset has Value and Quantity set to NULL.</li>
         <li>Call the API provided inside Task3 code with the target asset ID to retrieve the history log of users who manage this asset.</li>
         <li>Find the last user that modified this asset, go back to the terminal and type,  <span class="terminal-code">validate task3 {user Id}-{user firstname}-{user lastname} </span>(without the curly braces).</li>
-        <li>Click Next once the terminal gives you the green light along with another access code for the internal user info API.</li>
+        <li>Click OK once the terminal gives you the green light along with another access code for the internal user info API.</li>
     </ol>
 </div>
 @if (Model != null && !string.IsNullOrEmpty(Model.UserHash))
@@ -32,13 +32,13 @@
     </div>
 }
 <div class="text-center">
-    <a class="btn btn-primary" href="@Url.Action("Task2", "Home")" role="button">Back</a>
     @if (Model != null && Model.UserHash == "Mjk0MzE0LUdlbWluby1Eb21pbm8=")
     {
-        <a class="btn btn-primary" href="@Url.Action("Task4", "Home")" role="button">Next</a>
+        <a class="btn btn-primary" href="@Url.Action("Task4", "Home")" role="button">OK</a>
     }
     else
     {
-        <button type="button" class="btn btn-secondary disabled" href="#" role="button">Next</button>
+        <button type="button" class="btn btn-secondary disabled" href="#" role="button">OK</button>
     }
+    <a class="btn btn-primary" href="@Url.Action("Task2", "Home")" role="button">Back</a>
 </div>

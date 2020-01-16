@@ -10,7 +10,7 @@
         <li>View the #TODO comments under Task4 controller action.</li>
         <li>Use the access code obtained from the terminal and the unique key in {user Id}-{user firstname}-{user lastname} to obtain user info from the user info API .</li>
         <li>Review the result to locate the person last known location, go back to the terminal and type,  <span class="terminal-code">validate task4 {lat,lon}</span> (without the curly braces)".</li>
-        <li>Click Next once the terminal gives you the green light.</li>
+        <li>Click OK once the terminal gives you the green light.</li>
     </ol>
 </div>
 @if (Model != null)
@@ -53,14 +53,14 @@
     </div>
 }
 <div class="text-center">
-    <a class="btn btn-primary" href="@Url.Action("Task3", "Home")" role="button">Back</a>
     @if (Model != null)
     {
-        <a class="btn btn-primary" href="@Url.Action("MissionComplete", "Home")" role="button">Next</a>
+        <a class="btn btn-primary" href="@Url.Action("MissionComplete", "Home")" role="button">OK</a>
     }
     else
     {
-        <button type="button" class="btn btn-secondary disabled" href="#" role="button">Next</button>
+        <button type="button" class="btn btn-secondary disabled" href="#" role="button">OK</button>
     }
+    <a class="btn btn-primary" href="@Url.Action("Task3", "Home")" role="button">Back</a>
 </div>
 

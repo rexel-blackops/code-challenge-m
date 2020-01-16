@@ -11,7 +11,7 @@
         <li>With the correct API key, you should receive the list of assets that will need to be sent to our analytics team.</li>
         <li>Debug the code on HomeController.cs to the sub lists of assets below are being filtered and sorted correctly. There should be no more than 4 entries for each criteria</li>
         <li>Observe the two sub lists, go back to the terminal and type, <span class="terminal-code">validate task2 {Id of an asset with highest unit value},{Id of an asset with the most quantity}</span> (without the curly braces).</li>
-        <li>Click Next once the terminal gives you the green light.</li>
+        <li>Click OK once the terminal gives you the green light.</li>
     </ol>
 </div>
 <div>
@@ -67,13 +67,13 @@
     </table>
 </div>
 <div class="text-center">
-    <a class="btn btn-primary" href="@Url.Action("Task1", "Home")" role="button">Back</a>
     @if (Model?.Top4MostValuableAssets != null && Model?.Top4MostQuantityAssets != null && Model.Top4MostQuantityAssets.Count() + Model.Top4MostValuableAssets.Count() == 8)
     {
-        <a class="btn btn-primary" href="@Url.Action("Task3", "Home")" role="button">Next</a>
+        <a class="btn btn-primary" href="@Url.Action("Task3", "Home")" role="button">OK</a>
     }
     else
     {
-        <button type="button" class="btn btn-secondary disabled" href="#" role="button">Next</button>
+        <button type="button" class="btn btn-secondary disabled" href="#" role="button">OK</button>
     }
+    <a class="btn btn-primary" href="@Url.Action("Task1", "Home")" role="button">Back</a>
 </div>

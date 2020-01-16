@@ -12,7 +12,7 @@
         <li>Observe that the code is intended to connect to API call and retrieve an API key for the upcoming request. However, it is not working at this time.</li>
         <li>Debug and step through the codes on HomeController.cs, Task1GetApiKeyResponse.cs, and TerminalService.cs to ensure that API Key is obtained successfully.</li>
         <li>Once you have obtained the API key, go back to the terminal and type, <span class="terminal-code">validate task1 {API KEY}</span> (without the curly braces).</li>
-        <li>Click Next once the terminal gives you the green light.</li>
+        <li>Click OK once the terminal gives you the green light.</li>
     </ol>
 </div>
 <div class="text-center form-row justify-content-md-center">
@@ -22,13 +22,13 @@
     </div>
 </div>
 <div class="text-center">
-    <a class="btn btn-primary" href="@Url.Action("Index", "Home")" role="button">Back</a>
     @if (!string.IsNullOrEmpty(Model))
     {
-        <a class="btn btn-primary" href="@Url.Action("Task2", "Home")" role="button">Next</a>
+        <a class="btn btn-primary" href="@Url.Action("Task2", "Home")" role="button">OK</a>
     }
     else
     {
-        <button type="button" class="btn btn-secondary disabled" href="#" role="button">Next</button>
+        <button type="button" class="btn btn-secondary disabled" href="#" role="button">OK</button>
     }
+    <a class="btn btn-primary" href="@Url.Action("Index", "Home")" role="button">Back</a>
 </div>

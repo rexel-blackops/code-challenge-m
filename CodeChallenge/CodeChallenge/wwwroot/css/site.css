@@ -129,3 +129,32 @@ input.form-control {
     background-color: gray;
     color: yellow;
 }
+
+.blinking {
+    animation: blinkingText 1s infinite;
+    background-color: red;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+@keyframes blinkingText {
+    0% {
+        color: white;
+    }
+
+    49% {
+        color: white;
+    }
+
+    60% {
+        color: black;
+    }
+
+    99% {
+        color: black;
+    }
+
+    100% {
+        color: white;
+    }
+}

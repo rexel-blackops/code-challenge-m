@@ -12,25 +12,51 @@ namespace CodeChallenge.Controllers
     public class HomeController : Controller
     {
         private TerminalService _terminalService;
+        private readonly string _currentPageCookieName = "codechallenge_currentpage";
 
         public HomeController(TerminalService terminalService)
         {
             _terminalService = terminalService;
         }
 
-        public IActionResult Index()
+        /// <summary>
+        /// The page will attempt to skip to the "current page" unless the user explicitly set h querystring to true
+        /// </summary>
+        /// <param name="h"></param>
+        /// <returns></returns>
+        public IActionResult Index(bool? h)
         {
-            // #TODO: If you want to skip to the specific page, just uncomment one of the following lines (one line only!)
-            // return RedirectToAction("Task1", "Home"); // Uncomment here to skip to Task #1
-            // return RedirectToAction("Task2", "Home"); // Uncomment here to skip to Task #2
-            // return RedirectToAction("Task3", "Home"); // Uncomment here to skip to Task #3
-            // return RedirectToAction("Task4", "Home"); // Uncomment here to skip to Task #4
+            // Note from RexGex: These are logic for book marking the task page, so that you don't have to keep clicking everytime you reload the site.
+            // **DO NOT modify any code in Index controller action.**
+            var currentPage = HttpContext.Request.Cookies[_currentPageCookieName];
 
-            return View();
+            if (h.HasValue && h == true)
+            {
+                HttpContext.Response.Cookies.Append(_currentPageCookieName, "home");
+                return View();
+            }
+
+            switch (currentPage)
+            {
+                case "1":
+                    return RedirectToAction("Task1", "Home");
+                case "2":
+                    return RedirectToAction("Task2", "Home");
+                case "3":
+                    return RedirectToAction("Task3", "Home");
+                case "4":
+                    return RedirectToAction("Task4", "Home");
+                case "complete":
+                    return RedirectToAction("MissionComplete", "Home");
+                default:
+                    return View();
+            }
         }
 
         public async Task<IActionResult> Task1()
         {
+            HttpContext.Response.Cookies.Append(_currentPageCookieName, "1");
+
             // #TODO: Assign your secret token provided by the original email on the variable below
             var secretToken = "";
 
@@ -51,6 +77,8 @@ namespace CodeChallenge.Controllers
 
         public async Task<IActionResult> Task2()
         {
+            HttpContext.Response.Cookies.Append(_currentPageCookieName, "2");
+
             // #TODO: Assign the API key obtain from task #1 here.
             var apiKey = "";
 
@@ -73,6 +101,8 @@ namespace CodeChallenge.Controllers
 
         public async Task<IActionResult> Task3()
         {
+            HttpContext.Response.Cookies.Append(_currentPageCookieName, "3");
+
             // Note from RexGex: for now, I'm just gonna put a blanket try-catch statement for this task, so the page will at least render.
             // #TODO: Remove the try-catch statement once the task is completed.
             try
@@ -108,6 +138,8 @@ namespace CodeChallenge.Controllers
 
         public async Task<IActionResult> Task4()
         {
+            HttpContext.Response.Cookies.Append(_currentPageCookieName, "4");
+
             // Note from RexGex: for now, I'm just gonna put a blanket try-catch statement for this task, so the page will at least render.
             // #TODO: Remove the try-catch statement once the task is completed.
             try
@@ -141,6 +173,8 @@ namespace CodeChallenge.Controllers
 
         public IActionResult MissionComplete()
         {
+            HttpContext.Response.Cookies.Append(_currentPageCookieName, "complete");
+
             return View();
         }
 

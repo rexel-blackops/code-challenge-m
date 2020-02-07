@@ -2,16 +2,18 @@
     ViewData["Title"] = "Home";
 }
 
-<div>
-    <h1 class="display-4 text-center">Initiate Code Challenge!</h1>
-    <p>
-        Here you will continue the work that has been started by agent RexGex before he went missing. Most of the works will involve modifying Controllers, Models, and Services files. Please read the instruction carefully and be sure to complete all the steps listed in each task. You may modify Index controller action to skip to the task that you are currently working.
-    </p>
-    <p>
+<div class="start-instructions common">
+    <div class="initiate-header">Initiate Code Challenge!</div>
+    <span>
+        Here you will continue our captured agents work. This will involve modifying Controllers, Models, and Services files. Please read the instruction carefully and be sure to complete all the steps listed in each task.
+    </span>
+    <span>
         It is recommended that you uncheck "Stop debugger when browser window is closed" option under Tools -> Options... -> Projects and Solution -> Web Projects, so that the web browser will stay open while you are working on the code.
-    </p>
-    <p class="text-center"><span class="blinking">Avoid modifying Razor views inside /Views folder or validator logic(s) in any files to bypass validations for your works!</span></p>
-</div>
-<div class="text-center">
-    <a class="btn btn-primary" href="@Url.Action("Task1", "Home")" role="button">OK</a>
+    </span>
+    <div class="text-center index-page-warning-msg">
+        <p><span class="blinking">Avoid modifying Razor views inside /Views folder or validator logic(s) in any files to bypass validations for your works!</span></p>
+        <div class="super-cool-btn">
+            <button class="sky-neon" onclick="window.location.href = '@Url.Action("Task1", "Home")'">OK</button>
+        </div>
+    </div>
 </div>

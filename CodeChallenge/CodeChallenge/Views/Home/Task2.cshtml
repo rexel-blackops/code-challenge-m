@@ -3,9 +3,8 @@
     ViewData["Title"] = "Task #2";
 }
 
-<div>
-    <h1 class="display-4 text-center">Task #2: Analyze Assets</h1>
-    <div>Prior the disappearance of Agent RexGex, we had requested him to retrive the list of assets with the API key provided by our mole. Our analyst team need to find a few assets for further investigation.</div>
+<div class="task2 common">
+    <div class="task-header">Task #2: Analyze Assets</div>
     <ol>
         <li>Take the API key obtained from the previous and assign to the HomeController action Task2.</li>
         <li>With the correct API key, you should receive the list of assets that will need to be sent to our analytics team.</li>
@@ -13,68 +12,82 @@
         <li>Observe the two sub lists, go back to the terminal and type, <span class="terminal-code">validate task2 {Id of an asset with highest unit value},{Id of an asset with the most quantity}</span> (without the curly braces).</li>
         <li>Click OK once the terminal gives you the green light.</li>
     </ol>
-</div>
-<div>
-    <h2>Top 4 Assets with Most Value per Unit</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Name</th>
-                <th scope="col">Value</th>
-                <th scope="col">Quantity</th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (Model?.Top4MostValuableAssets != null)
-            {
-                @foreach (var asset in Model.Top4MostValuableAssets)
+    <div class="table-task2">
+        <div>Top 4 Assets with Most Value per Unit</div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id:</th>
+                    <th scope="col">Name:</th>
+                    <th scope="col">Value:</th>
+                    <th scope="col">Quantity:</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model?.Top4MostValuableAssets != null)
                 {
-                    <tr>
-                        <td>@asset.Id</td>
-                        <td>@asset.Name</td>
-                        <td>@string.Format("${0:#,#.0000}", asset.Value)</td>
-                        <td>@string.Format("{0:#,#}", asset.Quantity)</td>
-                    </tr>
+                    @foreach (var asset in Model.Top4MostValuableAssets)
+                    {
+                        <tr>
+                            <td>@asset.Id</td>
+                            <td>@asset.Name</td>
+                            <td>@string.Format("${0:#,#.0000}", asset.Value)</td>
+                            <td>@string.Format("{0:#,#}", asset.Quantity)</td>
+                        </tr>
+                    }
                 }
-            }
-        </tbody>
-    </table>
-    <h2>Top 4 Assets with Most Quantities</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Name</th>
-                <th scope="col">Value</th>
-                <th scope="col">Quantity</th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (Model?.Top4MostQuantityAssets != null)
-            {
-                @foreach (var asset in Model.Top4MostQuantityAssets)
+            </tbody>
+        </table>
+        <div>Top 4 Assets with Most Quantities</div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id:</th>
+                    <th scope="col">Name:</th>
+                    <th scope="col">Value:</th>
+                    <th scope="col">Quantity:</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model?.Top4MostQuantityAssets != null)
                 {
-                    <tr>
-                        <td>@asset.Id</td>
-                        <td>@asset.Name</td>
-                        <td>@string.Format("${0:#,#.0000}", asset.Value)</td>
-                        <td>@string.Format("{0:#,#}", asset.Quantity)</td>
-                    </tr>
+                    @foreach (var asset in Model.Top4MostQuantityAssets)
+                    {
+                        <tr>
+                            <td>@asset.Id</td>
+                            <td>@asset.Name</td>
+                            <td>@string.Format("${0:#,#.0000}", asset.Value)</td>
+                            <td>@string.Format("{0:#,#}", asset.Quantity)</td>
+                        </tr>
+                    }
                 }
-            }
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
+    <div class="task2-lower-controls text-center">
+        <button class="sky-neon" onclick="window.location.href = '@Url.Action("Task1", "Home")'">Back</button>
+        @if (Model?.Top4MostValuableAssets != null && Model?.Top4MostQuantityAssets != null && Model.Top4MostQuantityAssets.Count() + Model.Top4MostValuableAssets.Count() == 8)
+        {
+            <button class="submit-button" onclick="window.location.href = '@Url.Action("Task3", "Home")'">Submit</button>
+        }
+        else
+        {
+            <button class="submit-button disabled">Submit</button>
+        }
+        <button class="sky-neon" onclick="window.location.href = '@Url.Action("Task3", "Home")'">Skip</button>
+    </div>
 </div>
-<div class="text-center">
-    @if (Model?.Top4MostValuableAssets != null && Model?.Top4MostQuantityAssets != null && Model.Top4MostQuantityAssets.Count() + Model.Top4MostValuableAssets.Count() == 8)
-    {
-        <a class="btn btn-primary" href="@Url.Action("Task3", "Home")" role="button">OK</a>
+
+<style>
+    .task2-lower-controls {
+        width: 42%;
+        position: absolute;
+        right: 28%;
+        top: 96%;
     }
-    else
-    {
-        <button type="button" class="btn btn-secondary disabled" href="#" role="button">OK</button>
+
+    .table-task2 {
+        width: 90%;
+        font-size: 1.1vw;
     }
-    <a class="btn btn-primary" href="@Url.Action("Task3", "Home")" role="button">Skip</a>
-    <a class="btn btn-primary" href="@Url.Action("Task1", "Home")" role="button">Back</a>
-</div>
+</style>

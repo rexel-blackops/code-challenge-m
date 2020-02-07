@@ -19,22 +19,11 @@ html {
     }
 }
 
-.border-top {
-    border-top: 1px solid #e5e5e5;
-}
-
-.border-bottom {
-    border-bottom: 1px solid #e5e5e5;
-}
-
 .box-shadow {
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
-button.accept-policy {
-    font-size: 1rem;
-    line-height: inherit;
-}
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -44,46 +33,32 @@ html {
 }
 
 body {
+    background-color: black;
+    font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;
     /* Margin bottom by footer height */
-    margin-bottom: 60px;
 }
 
-.footer {
+.common {
+    font-size: 1.05vw;
+    color: whitesmoke;
     position: absolute;
-    bottom: 0;
-    width: 100%;
-    white-space: nowrap;
-    /* Set the fixed height of the footer here */
-    height: 60px;
-    line-height: 60px; /* Vertically center the text there */
+    height: 75%;
+    top: 2%;
+    padding: 0px 15px 15px 15px;
 }
 
-/* Black Ops stuff
--------------------------------------------------- */
-nav > div > h1 {
-    background-color: darkgray;
-    box-shadow: 5px 5px black;
-    margin: auto;
-    width: 100%;
-    color: blue;
+
+.task-header {
+    font-size: 1.5vw;
+    font-weight: bolder;
+    color: #008F11;
+    margin-bottom: 2%;
+    /* text-align: center; */
+    background: -webkit-linear-gradient(#1bea5a, #008F11);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-h1, h2 {
-    border-style: double;
-    border-color: white;
-    color: yellow;
-    text-align: center;
-    margin-top: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    box-shadow: 5px 5px gray;
-}
-
-body {
-    color: black;
-    background-color: #00a;
-    font-family: Consolas,monaco,monospace;
-}
 
     body > div.container {
         border-width: 5px;
@@ -97,63 +72,137 @@ body {
         background-color: #00a;
     }
 
-.btn-primary, button.disabled {
-    background-color: #0e7a0d;
-    border-color: #0e7a0d;
-    border-radius: 0px;
-    box-shadow: 5px 5px black;
-}
 
 .table th {
     color: yellow;
 }
 
 table, th, td, .table th, .table td {
-    border: 3px dashed white;
-    box-shadow: 5px 5px gray;
+    box-shadow: 2px 2px gray;
 }
 
-footer {
-    text-transform: uppercase;
-    color: white;
-    text-align: center;
-    background-color: #bb0000;
-}
 
-input.form-control {
+/*input.form-control {
     border-radius: 0px;
     box-shadow: 5px 5px gray;
+}*/
+
+
+
+/*index page*/
+
+.start-instructions {
+    font-size: 1.1vw;
+    color: whitesmoke;
+    position: absolute;
+    height: 75%;
+    top: 3%;
+    padding: 0px 15px 15px 15px;
+}
+
+.initiate-header {
+    font-size: 2vw;
+    font-weight: bolder;
+    color: #008F11;
+    margin-bottom: 7%;
+    text-align: center;
+    background: -webkit-linear-gradient(#00FF41, #008F11);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.index-page-warning-msg {
+    position: absolute;
+    top: 55%;
 }
 
 .terminal-code {
-    background-color: gray;
+    background-color: black;
     color: yellow;
 }
 
 .blinking {
-    animation: blinkingText 1s infinite;
-    background-color: red;
+    animation: blinkingText 1.5s infinite;
     padding: 5px 10px 5px 10px;
 }
 
 @keyframes blinkingText {
-    0% {
-        color: white;
-    }
+    0% { color: red; }
 
-    49% {
-        color: white;
-    }
+    49% { color: red; }
 
-    60% {
-        color: black;
-    }
+    60% { color: black; }
 
-    99% {
-        color: black;
-    }
+    99% { color: black; }
 
-    100% {
-        color: white;
-    }
+    100% { color: red; }
 }
+
+/*index page end*/
+
+
+/*Buttons*/
+.super-cool-btn {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    cursor: pointer;
+    margin:20px;
+}
+
+button {
+    font-size: 20px;
+    width: 31%;
+    height: 35px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: lato;
+    font-size: 1.1vw;
+}
+
+.sky-neon {
+    color: white;
+    /*background-color: #77BAE0;*/
+    background-color: black;
+    -webkit-transition: .4s all ease-in;
+    transition: .4s all ease-in;
+    /*border: 2px solid transparent;*/
+    border: 2px solid #86dbff;
+    box-shadow: inset 0 0 20px #86dbff;
+}
+
+
+.sky-neon:hover, .sky-neon:focus {
+    -webkit-box-shadow: 0px 0px 20px 15px #3cc6d8;
+    box-shadow: 0px 0px 30px 20px #3cc6d8;
+    background-color: #d7f3ff;
+    text-shadow: 2px 2px 7px #65b0da;
+}
+
+.button-text {
+    font-weight: bold;
+}
+
+.submit-button {
+    color: white;
+    /*background-color: #77BAE0;*/
+    background-color: black;
+    -webkit-transition: .4s all ease-in;
+    transition: .4s all ease-in;
+    /*border: 2px solid transparent;*/
+    border: 2px solid #008F11;
+    box-shadow: inset 0 0 20px #008F11;
+}
+
+.submit-button:hover, .submit-button :focus {
+    -webkit-box-shadow: 0px 0px 20px 15px #00FF41;
+    box-shadow: 0px 0px 30px 20px #00FF41;
+    background-color: #c3f3cf;
+    text-shadow: 2px 2px 7px #00FF41;
+}
+    /*ButtonsEnd*/
+

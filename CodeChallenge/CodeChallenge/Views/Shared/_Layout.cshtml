@@ -18,25 +18,54 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <header>
-        <nav class="navbar box-shadow mb-3">
-            <div class="container">
-                <h1>
-                    Rexel Black Ops Code Challenge
-                </h1>
+    @*<header>
+            <nav class="navbar box-shadow mb-3">
+                <div class="container">
+                    <h1>
+                        Rexel Black Ops Code Challenge
+                    </h1>
+                </div>
+            </nav>
+        </header>*@
+<div class="stretchy-container page-main">
+    <div class="aspect-container">
+        <div class="flex-container">
+            <div class="flex-item">
+                <div class="main-terminal">
+                    @*<div class="glitch__img"></div>
+                        <div class="glitch__img"></div>
+                        <div class="glitch__img"></div>
+                        <div class="glitch__img"></div>
+                        <div class="glitch__img"></div>*@
+                    <div class="info-center">
+                        <partial name="_CookieConsentPartial"/>
+                        <main role="main" class="pb-3">
+                            @RenderBody()
+                        </main>
+                    </div>
+                </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <partial name="_CookieConsentPartial" />
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+            <div class="flex-item">
+                <div class="task-navigation-list">
+                    <ul>
+                        <li id="nav-home"><a href="@Url.Action("Index", "Home", new { h = true})">-- Home --</a></li>
+                        <li id="nav-task1"><a href="@Url.Action("Task1", "Home", new { h = true})">-- Task 1 --</a></li>
+                        <li id="nav-task2"><a href="@Url.Action("Task2", "Home", new { h = true})">-- Task 2 --</a></li>
+                        <li id="nav-task3"><a href="@Url.Action("Task3", "Home", new { h = true})">-- Task 3 --</a></li>
+                        <li id="nav-task4"><a href="@Url.Action("Task4", "Home", new { h = true})">-- Task 4 --</a></li>
+                    </ul>
+                </div>
+                <div class="side-terminal fadein">
+                    <div class="side-terminal-image img-state01"></div>
+                    <div class="side-terminal-image img-state02"></div>
+                    <div class="side-terminal-image img-state03 "></div>
+                    <div class="side-terminal-image img-state04"></div>
+                    <div class="side-terminal-image img-state05 "></div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <footer class="border-top footer">
-        &copy; 2020 - Rexel Black Ops Code Challenge - Everything here is used in a fictitious manner. Any resemblance is purely coincidental.
-    </footer>
+</div>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -61,3 +90,254 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+
+<style>
+
+
+    .stretchy-container {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: black;
+    }
+
+    .aspect-container {
+        width: 100%;
+        padding-top: 56.25%;
+        position: relative;
+    }
+
+    .flex-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        /*flex-direction: row;*/
+        flex-wrap: nowrap;
+        /*justify-content: flex-start;*/
+        align-content: center;
+        align-items: stretch;
+    }
+
+    .flex-container:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .flex-item:nth-child(1) {
+        order: 0;
+        flex: 1 1 auto;
+        align-self: auto;
+    }
+
+    .flex-item:nth-child(2) {
+        order: 0;
+        flex: 0 0 27%;
+        align-self: auto;
+    }
+
+    .main-terminal {
+        background-image: url('/Images/SpyUI-default.png');
+        background-position: right center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 100%;
+        position: relative;
+    }
+
+    .info-center {
+        display: inline-block;
+        position: absolute;
+        width: 86%;
+        left: 12%;
+        top: 8%;
+        height: 82%;
+    }
+
+    .side-terminal {
+        background-image: url('/Images/SpyUI-state01.png');
+        background-position: left center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 100%;
+    }
+
+    .side-terminal-image {
+        background-position: left center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 100%;
+        -webkit-transition: opacity 1s ease-in-out;
+        -moz-transition: opacity 1s ease-in-out;
+        -o-transition: opacity 1s ease-in-out;
+        transition: opacity 1s ease-in-out;
+        transition: all 1s ease-in-out;
+        /*position: absolute;*/
+    }
+
+    .img-state01 {
+        background-image: url('/Images/SpyUI-state01.png');
+    }
+
+    .img-state02 {
+        background-image: url('/Images/SpyUI-state02.png');
+    }
+
+    .img-state03 {
+        background-image: url('/Images/SpyUI-state03.png');
+    }
+
+    .img-state04 {
+        background-image: url('/Images/SpyUI-state04.png');
+    }
+
+    .img-state05 {
+        background-image: url('/Images/SpyUI-state05.png');
+    }
+    
+    @@keyframes backgroundchangeFadeInOut {
+        0% {
+            opacity: 0;
+        }
+
+        11.11% {
+            opacity: 1;
+        }
+
+        33.33% {
+            opacity: 1;
+        }
+
+        44.44% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+
+    .fadein {
+        position: relative;
+    }
+
+    .fadein div {
+        opacity: 0;
+        /*animation-name: backgroundchangeFadeInOut;
+        animation-duration: 2.25s;
+        animation-iteration-count: infinite;*/
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+
+    .side-terminal div {
+        animation-name: backgroundchangeFadeInOut;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-duration: 2.5s;
+        /*-webkit-animation-name: backgroundchangeFadeInOut;
+        -webkit-animation-timing-function: ease-in-out;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-duration: 2s;*/
+    }
+
+    .fadein div:nth-of-type(1) {
+        animation-delay: .01s;
+    }
+
+    .fadein div:nth-of-type(2) {
+        animation-delay: .5s;
+    }
+
+    .fadein div:nth-of-type(3) {
+        animation-delay: 1s;
+    }
+    .fadein div:nth-of-type(4) {
+        animation-delay: 1.5s;
+    }
+
+    .fadein div:nth-of-type(5) {
+        animation-delay: 2s;
+    }
+
+    .task-navigation-list {
+        width: 16%;
+        height: 31%;
+        z-index: 9999;
+        position: absolute;
+        top: 40%;
+        font-size: 1.5vw;
+        font-weight: bolder;
+        color: #008F11;
+        margin-bottom: 2%;
+        right: 10%;
+        line-height: 180%;
+        box-shadow: inset 0 0 10px #24a924;
+    }
+    
+
+    .task-navigation-list ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        left: 10%;
+        top: 10%;
+    }
+    .task-navigation-list li:hover {
+        color: red;
+    }
+    .task-navigation-list a {
+        color: #1bea5a;
+    }
+
+    .task-selected a {
+        background-color: #1bea5a;
+        color: whitesmoke;
+    }
+
+    @@keyframes fadeIn {
+        60% {
+            opacity: 0;
+        }
+   
+        100% {
+            opacity: 1;
+        }
+    }
+    
+</style>
+
+
+<script>
+
+    window.onload = taskTrace();
+
+    function taskTrace() {
+        var path = window.location.pathname;
+        switch (path) {
+        case "/":
+            $('#nav-home').addClass( "task-selected" );
+            break;
+        case "/Home/Task1":
+            $('#nav-task1').addClass( "task-selected" );
+            break;
+        case "/Home/Task2":
+            $('#nav-task2').addClass( "task-selected" );
+            break;
+        case "/Home/Task3":
+            $('#nav-task3').addClass( "task-selected" );
+            break;
+        case "/Home/Task4":
+            $('#nav-task4').addClass( "task-selected" );
+            break;
+        default:
+        }
+    }
+
+</script>

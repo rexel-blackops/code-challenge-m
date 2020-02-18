@@ -12,59 +12,61 @@
         <li>Observe the two sub lists, go back to the terminal and type, <span class="terminal-code">validate task2 {Id of an asset with highest unit value},{Id of an asset with the most quantity}</span> (without the curly braces).</li>
         <li>Click OK once the terminal gives you the green light.</li>
     </ol>
-    <div class="table-task2">
-        <div>Top 4 Assets with Most Value per Unit</div>
+    <div class="table-task2 text-center">
+        
         <table class="table">
+            <caption>Top 4 Assets with Most Value per Unit</caption>
             <thead>
-                <tr>
-                    <th scope="col">Id:</th>
-                    <th scope="col">Name:</th>
-                    <th scope="col">Value:</th>
-                    <th scope="col">Quantity:</th>
-                </tr>
+
+            <tr>
+                <th scope="col">Id:</th>
+                <th scope="col">Name:</th>
+                <th scope="col">Value:</th>
+                <th scope="col">Quantity:</th>
+            </tr>
             </thead>
             <tbody>
-                @if (Model?.Top4MostValuableAssets != null)
+            @if (Model?.Top4MostValuableAssets != null)
+            {
+                @foreach (var asset in Model.Top4MostValuableAssets)
                 {
-                    @foreach (var asset in Model.Top4MostValuableAssets)
-                    {
-                        <tr>
-                            <td>@asset.Id</td>
-                            <td>@asset.Name</td>
-                            <td>@string.Format("${0:#,#.0000}", asset.Value)</td>
-                            <td>@string.Format("{0:#,#}", asset.Quantity)</td>
-                        </tr>
-                    }
+                    <tr>
+                        <td>@asset.Id</td>
+                        <td>@asset.Name</td>
+                        <td>@string.Format("${0:#,#.0000}", asset.Value)</td>
+                        <td>@string.Format("{0:#,#}", asset.Quantity)</td>
+                    </tr>
                 }
+            }
             </tbody>
         </table>
-        <div>Top 4 Assets with Most Quantities</div>
         <table class="table">
+            <caption>Top 4 Assets with Most Quantities</caption>
             <thead>
-                <tr>
-                    <th scope="col">Id:</th>
-                    <th scope="col">Name:</th>
-                    <th scope="col">Value:</th>
-                    <th scope="col">Quantity:</th>
-                </tr>
+            <tr>
+                <th scope="col">Id:</th>
+                <th scope="col">Name:</th>
+                <th scope="col">Value:</th>
+                <th scope="col">Quantity:</th>
+            </tr>
             </thead>
             <tbody>
-                @if (Model?.Top4MostQuantityAssets != null)
+            @if (Model?.Top4MostQuantityAssets != null)
+            {
+                @foreach (var asset in Model.Top4MostQuantityAssets)
                 {
-                    @foreach (var asset in Model.Top4MostQuantityAssets)
-                    {
-                        <tr>
-                            <td>@asset.Id</td>
-                            <td>@asset.Name</td>
-                            <td>@string.Format("${0:#,#.0000}", asset.Value)</td>
-                            <td>@string.Format("{0:#,#}", asset.Quantity)</td>
-                        </tr>
-                    }
+                    <tr>
+                        <td>@asset.Id</td>
+                        <td>@asset.Name</td>
+                        <td>@string.Format("${0:#,#.0000}", asset.Value)</td>
+                        <td>@string.Format("{0:#,#}", asset.Quantity)</td>
+                    </tr>
                 }
+            }
             </tbody>
         </table>
     </div>
-    <div class="task2-lower-controls text-center">
+    <div class="lower-controls text-center">
         <button class="sky-neon" onclick="window.location.href = '@Url.Action("Task1", "Home")'">Back</button>
         @if (Model?.Top4MostValuableAssets != null && Model?.Top4MostQuantityAssets != null && Model.Top4MostQuantityAssets.Count() + Model.Top4MostValuableAssets.Count() == 8)
         {
@@ -77,17 +79,4 @@
         <button class="sky-neon" onclick="window.location.href = '@Url.Action("Task3", "Home")'">Skip</button>
     </div>
 </div>
-
-<style>
-    .task2-lower-controls {
-        width: 42%;
-        position: absolute;
-        right: 28%;
-        top: 96%;
-    }
-
-    .table-task2 {
-        width: 90%;
-        font-size: 1.1vw;
-    }
-</style>
+    

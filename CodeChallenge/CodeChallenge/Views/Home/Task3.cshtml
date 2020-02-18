@@ -13,23 +13,23 @@
     </ol>
     @if (Model != null && !string.IsNullOrEmpty(Model.UserHash))
     {
-        <h2>Possible Suspect Found!</h2>
-        <div class="text-center form-row justify-content-md-center">
-            <div class="col-md-3 mb-3">
+        <div class="suspect-found blinking text-center">Possible Suspect Found!</div>
+        <div class="suspect-input text-center">
+            <div class="input-field">
                 <label for="FirstName">User ID</label>
-                <input type="text" class="form-control" disabled value="@Model.UserId" required>
+                <input type="text" class="task3-input-field" disabled value="@Model.UserId" required>
             </div>
-            <div class="col-md-3 mb-3">
+            <div class="input-field">
                 <label for="FirstName">First Name</label>
-                <input type="text" class="form-control" disabled value="@Model.UserFirstName" required>
+                <input type="text" class="task3-input-field" disabled value="@Model.UserFirstName" required>
             </div>
-            <div class="col-md-3 mb-3">
+            <div class="input-field">
                 <label for="FirstName">Last Name</label>
-                <input type="text" class="form-control" disabled value="@Model.UserLastName" required>
+                <input type="text" class="task3-input-field" disabled value="@Model.UserLastName" required>
             </div>
         </div>
     }
-    <div class="task3-lower-controls text-center">
+    <div class="lower-controls text-center">
         <button class="sky-neon" onclick="window.location.href = '@Url.Action("Task3", "Home")'">Back</button>
         @if (Model != null && Model.UserHash == "Mjk0MzE0LUdlbWluby1Eb21pbm8=")
         {
@@ -42,14 +42,3 @@
         <button class="sky-neon" onclick="window.location.href = '@Url.Action("Task4", "Home")'">Skip</button>
     </div>
 </div>
-
-<style>
-    .task3-lower-controls {
-        width: 42%;
-        position: absolute;
-        right: 28%;
-        top: 80%;
-    }
-
-     
-</style>

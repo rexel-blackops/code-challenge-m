@@ -17,44 +17,43 @@
 
         @if (Model != null)
         {
-            <h2>Suspect Dossier</h2>
-            <div class="text-center form-row justify-content-md-center">
-                <div class="row">
-                    <div class="col-md-3">
-                        <img class="img-fluid" src="@Model.UserImageUrl" alt="Perpetator Photo" />
+            <div class="flex-table-container">
+                <div class="flex-table-item">
+                    <img class="img-fluid suspect-image" src="@Model.UserImageUrl" alt="Perpetator Photo" />
+                </div>
+                <div class="flex-table-item">
+                    <div class="row">
+                        <div class="input-field">
+                            <label for="UserId">User ID</label>
+                            <input type="text" class="form-control" disabled value="@Model.UserId" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="FirstName">First Name</label>
+                            <input type="text" class="form-control" disabled value="@Model.UserFirstName" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="LastName">Last Name</label>
+                            <input type="text" class="form-control" disabled value="@Model.UserLastName" required>
+                        </div>
                     </div>
-                    <div class="col-md-9 mb-3">
-                        <div class="row">
-                            <div class="col-4 mb-3">
-                                <label for="UserId">User ID</label>
-                                <input type="text" class="form-control" disabled value="@Model.UserId" required>
-                            </div>
-                            <div class="col-4 mb-3">
-                                <label for="FirstName">First Name</label>
-                                <input type="text" class="form-control" disabled value="@Model.UserFirstName" required>
-                            </div>
-                            <div class="col-4 mb-3">
-                                <label for="LastName">Last Name</label>
-                                <input type="text" class="form-control" disabled value="@Model.UserLastName" required>
-                            </div>
-                            <div class="col-4 mb-3">
-                                <label for="JobTitle">Job Title</label>
-                                <input type="text" class="form-control" disabled value="@Model.UserJobTitle" required>
-                            </div>
-                            <div class="col-4 mb-3">
-                                <label for="DeptCode">Department Code</label>
-                                <input type="text" class="form-control" disabled value="@Model.UserDepartmentCode" required>
-                            </div>
-                            <div class="col-4 mb-3">
-                                <label for="Location">Last Location</label>
-                                <input type="text" class="form-control" disabled value="@Model.LastLatLon" required>
-                            </div>
+                    <div class="row text-center">
+                        <div class="input-field">
+                            <label for="JobTitle">Job Title</label>
+                            <input type="text" class="form-control" disabled value="@Model.UserJobTitle" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="DeptCode">Department Code</label>
+                            <input type="text" class="form-control" disabled value="@Model.UserDepartmentCode" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="Location">Last Location</label>
+                            <input type="text" class="form-control" disabled value="@Model.LastLatLon" required>
                         </div>
                     </div>
                 </div>
             </div>
         }
-        <div class="task4-lower-controls text-center">
+        <div class="lower-controls text-center">
             <button class="sky-neon" onclick="window.location.href = '@Url.Action("Task3", "Home")'">Back</button>
             @if (Model != null)
             {
@@ -67,14 +66,3 @@
             @*<a class="btn btn-primary" href="@Url.Action("MissionComplete", "Home")" role="button">Skip</a>*@
         </div>
     </div>
-
-<style>
-    .task4-lower-controls {
-        width: 42%;
-        position: absolute;
-        right: 28%;
-        top: 80%;
-    }
-   
-     
-</style>

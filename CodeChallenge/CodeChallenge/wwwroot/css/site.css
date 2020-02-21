@@ -85,7 +85,6 @@ body > header > nav > div {
 
 .form-control {
     font-size: 1vw;
-    max-width: 8vw;
     width: 100%;
     height: auto;
     color: #008F11;
@@ -97,7 +96,6 @@ body > header > nav > div {
     display: inline-table;
     text-align: center;
     border-collapse: collapse;
-    table-layout: fixed;
     overflow: auto;
 }
 
@@ -122,11 +120,6 @@ table, th, td, .table th, .table td {
     height: auto;
     width: 100%; /* ie8 */
 }
-
-/*input.form-control {
-    border-radius: 0px;
-    box-shadow: 5px 5px gray;
-}*/
 
 /*Layout*/
 .stretchy-container {
@@ -507,7 +500,7 @@ table, th, td, .table th, .table td {
     width: 42%;
     position: absolute;
     right: 28%;
-    bottom: 13%;
+    bottom: 2%;
 }
 
 .super-cool-btn {

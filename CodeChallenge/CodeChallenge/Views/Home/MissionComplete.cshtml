@@ -10,18 +10,18 @@
     </div>
 
     <div class="misson-complete-message text-center">
-            <p>
-                Congratulations! You have completed all the tasks.
-            </p>
-            <p>
-                (Optional, but encouraged!) -- Implement an additional controller action of your choosing. Use one or more public API endpoints to retrieve data sets, and do something interesting with that data! The choice is up to you, but this is your opportunity to show us what else you can do with C#. You may use this page (Views/Home/MissionComplete.cshtml) to display the data.
-            </p>
-            <p>
-                Once you are done with all the works (e.g., including code formatting and cleaning up unused lines), please submit the project source code to your own GitHub repository and send us the link via email for further review.
-            </p>
-        </div>
+        <p>
+            Congratulations! You have completed all the tasks.
+        </p>
+        <p>
+            (Optional, but encouraged!) -- Implement an additional controller action of your choosing. Use one or more public API endpoints to retrieve data sets, and do something interesting with that data! The choice is up to you, but this is your opportunity to show us what else you can do with C#. You may use this page (Views/Home/MissionComplete.cshtml) to display the data.
+        </p>
+        <p>
+            Once you are done with all the works (e.g., including code formatting and cleaning up unused lines), please submit the project source code to your own GitHub repository and send us the link via email for further review.
+        </p>
+    </div>
     <div class="lower-controls text-center">
-        <button class="sky-neon" onclick="window.location.href = '@Url.Action("Index", "Home")'">OK</button>
+        <button class="sky-neon" onclick="window.location.href = '@Url.Action("Index", "Home",new { h = true })'">OK</button>
     </div>
 
 </div>

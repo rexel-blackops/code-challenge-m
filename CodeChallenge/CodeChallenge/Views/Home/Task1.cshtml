@@ -14,21 +14,21 @@
         <li>Once you have obtained the API key, go back to the <a href="https://codechallenge.rexelapps.com/" target="_blank">terminal</a>  and type, <span class="terminal-code">validate task1 {API KEY}</span> (without the curly braces).</li>
         <li>Click OK once the terminal gives you the green light.</li>
     </ol>
-    
+
     <div id="api-key-input">
         <label for="FirstName">API Key:</label>
         <input type="text" class="api-input" @*disabled*@ value="@Model" required>
     </div>
 
     <div class="lower-controls">
-       
+
         <div class="text-center">
-       
-            <button class="sky-neon" onclick="window.location.href = '@Url.Action("Index", "Home")'">Back</button>
-           
+
+            <button class="sky-neon" onclick="window.location.href = '@Url.Action("Index", "Home",new { h = true })'">Back</button>
+
             @if (!string.IsNullOrEmpty(Model))
             {
-                <button class="sky-neon" onclick="window.location.href = '@Url.Action("Task2", "Home")'">Submit</button>
+                <button class="submit-button" onclick="window.location.href = '@Url.Action("Task2", "Home")'">Submit</button>
             }
             else
             {

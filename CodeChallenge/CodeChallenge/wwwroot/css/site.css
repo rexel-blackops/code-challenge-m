@@ -49,10 +49,10 @@ body {
 .task-header {
     font-size: 1.5vw;
     font-weight: bolder;
-    color: #008F11;
+    color: lime;
     margin-bottom: 2%;
     /* text-align: center; */
-    background: -webkit-linear-gradient(#1bea5a, #008F11);
+    background: -webkit-linear-gradient(limegreen, #008F11);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -306,7 +306,7 @@ table, th, td, .table th, .table td {
     top: 40%;
     font-size: 1.5vw;
     font-weight: bolder;
-    color: #008F11;
+    color: lime;
     margin-bottom: 2%;
     right: 10%;
     line-height: 180%;
@@ -327,11 +327,11 @@ table, th, td, .table th, .table td {
 }
 
 .task-navigation-list a {
-    color: #1bea5a;
+    color: lime;
 }
 
 .task-selected a {
-    background-color: #1bea5a;
+    background-color: limegreen;
     color: whitesmoke;
 }
 
@@ -411,7 +411,7 @@ table, th, td, .table th, .table td {
 /*Task 1*/
 
 .api-input {
-    color: green;
+    color: lime;
     background-color: black;
 }
 
@@ -470,6 +470,37 @@ table, th, td, .table th, .table td {
 
 /*task 4 end*/
 
+
+/*misson complete*/
+
+.misson-accomplished-header {
+    font-size: 2vw;
+    font-weight: bolder;
+    color: #008F11;
+    /* margin-bottom: 7%; */
+    text-align: center;
+    background: -webkit-linear-gradient(#00FF41, #008F11);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.accomplished-image {
+       
+    height: 30%;
+    width: 100%;
+}
+
+#wick {
+    width: auto;
+    height: 94%;
+}
+
+.misson-complete-message {
+    font-size: 1vw;
+}
+
+/*misson complete end*/
+
 /*Buttons*/
 
 .lower-controls {
@@ -512,12 +543,12 @@ button {
 }
 
 
-    .sky-neon:hover, .sky-neon:focus {
-        -webkit-box-shadow: 0px 0px 20px 15px #3cc6d8;
-        box-shadow: 0px 0px 30px 20px #3cc6d8;
-        background-color: #d7f3ff;
-        text-shadow: 2px 2px 7px #65b0da;
-    }
+.sky-neon:hover, .sky-neon:focus {
+    -webkit-box-shadow: 0px 0px 20px 15px #3cc6d8;
+    box-shadow: 0px 0px 30px 20px #3cc6d8;
+    background-color: #d7f3ff;
+    text-shadow: 2px 2px 7px #65b0da;
+}
 
 .button-text {
     font-weight: bold;
@@ -576,7 +607,7 @@ button {
 
 .task3-input-field {
     background-color: black;
-    color: green;
+    color: lime;
     text-align: center;
     font-size: 1vw;
     box-shadow: inset 0 0 5px #24a924;

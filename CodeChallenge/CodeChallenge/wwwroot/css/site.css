@@ -178,14 +178,6 @@ table, th, td, .table th, .table td {
 }
 
 .info-center {
-    /*display: inline-block;
-    position: absolute;
-    width: 86%;
-    left: 12%;
-    top: 8%;
-    height: 82%;*/
-
-
     display: inline-block;
     position: relative;
     width: 75%;

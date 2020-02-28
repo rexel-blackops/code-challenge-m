@@ -38,7 +38,7 @@ body {
 }
 
 .common {
-    font-size: 1.05vw;
+    font-size: 1vw;
     color: whitesmoke;
     position: absolute;
     height: 75%;
@@ -91,8 +91,7 @@ body > header > nav > div {
 }
 
 .table {
-    width: 47%;
-    font-size: 1vw;
+    width: 49%;
     display: inline-table;
     text-align: center;
     border-collapse: collapse;
@@ -123,15 +122,17 @@ table, th, td, .table th, .table td {
 
 /*Layout*/
 .stretchy-container {
-    width: 100%;
+    width: 99%;
     height: 100%;
     overflow: hidden;
     background-color: black;
+    position: absolute;
+    top: 0;
 }
 
 .aspect-container {
     width: 100%;
-    padding-top: 56.25%;
+    padding-top: 51.25%;
     position: relative;
 }
 
@@ -168,7 +169,7 @@ table, th, td, .table th, .table td {
 }
 
 .main-terminal {
-    background-image: url('/Images/SpyUI-default.png');
+    background-image: url('/Images/SpyDefault.png');
     background-position: right center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -177,13 +178,22 @@ table, th, td, .table th, .table td {
 }
 
 .info-center {
-    display: inline-block;
+    /*display: inline-block;
     position: absolute;
     width: 86%;
     left: 12%;
     top: 8%;
-    height: 82%;
+    height: 82%;*/
+
+
+    display: inline-block;
+    position: relative;
+    width: 75%;
+    left: 20%;
+    top: 7%;
+    height: 85%;
 }
+
 
 .side-terminal {
     background-image: url('/Images/SpyUI-state01.png');
@@ -208,23 +218,23 @@ table, th, td, .table th, .table td {
 }
 
 .img-state01 {
-    background-image: url('/Images/SpyUI-state01.png');
+    background-image: url('/Images/SpySide01.png');
 }
 
 .img-state02 {
-    background-image: url('/Images/SpyUI-state02.png');
+    background-image: url('/Images/SpySide02.png');
 }
 
 .img-state03 {
-    background-image: url('/Images/SpyUI-state03.png');
+    background-image: url('/Images/SpySide03.png');
 }
 
 .img-state04 {
-    background-image: url('/Images/SpyUI-state04.png');
+    background-image: url('/Images/SpySide04.png');
 }
 
 .img-state05 {
-    background-image: url('/Images/SpyUI-state05.png');
+    background-image: url('/Images/SpySide05.png');
 }
 
 @keyframes backgroundchangeFadeInOut {
@@ -292,16 +302,16 @@ table, th, td, .table th, .table td {
 }
 
 .task-navigation-list {
-    width: 16%;
+    width: 15%;
     height: 31%;
     z-index: 9999;
     position: absolute;
     top: 40%;
-    font-size: 1.5vw;
+    font-size: 1.4vw;
     font-weight: bolder;
     color: lime;
     margin-bottom: 2%;
-    right: 10%;
+    right: 11%;
     line-height: 180%;
     box-shadow: inset 0 0 10px #24a924;
 }
@@ -422,8 +432,11 @@ table, th, td, .table th, .table td {
 /*task 2*/
 
 .table-task2 {
-    width: 100%;
-    font-size: 1.1vw;
+    /*position: absolute;*/
+    width:100%;
+    font-size: .8vw;
+    /*bottom: 9%;*/
+    left: 4%;
 }
 /*task 2 end*/
 
@@ -586,12 +599,11 @@ button {
 }
 
 .input-field {
-    width: 22%;
+    width: 30%;
     display: inline-block;
     text-align: center;
-    vertical-align: middle;
-    margin: 0 0%;
     white-space: normal;
+    padding: 0px 5px 1px 5px;
 }
 
 .suspect-found {
@@ -612,6 +624,6 @@ button {
     }
 
     .lower-controls {
-        bottom: -8%;
+        bottom: -6%;
     }
 }

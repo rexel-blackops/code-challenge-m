@@ -1,10 +1,15 @@
 ﻿@{
     ViewData["Title"] = "Mission Accomplished";
+
 }
 
-<div>
-    <h1 class="display-4 text-center">Mission Accomplished!</h1>
-    <div>
+<div class="common">
+    <div class="misson-accomplished-header text-center">Mission Accomplished!</div>
+    <div class="accomplished-image text-center">
+        <img id="wick" src="/Images/mrwick2.png" />
+    </div>
+
+    <div class="misson-complete-message text-center">
         <p>
             Congratulations! You have completed all the tasks.
         </p>
@@ -12,11 +17,11 @@
             (Optional, but encouraged!) -- Implement an additional controller action of your choosing. Use one or more public API endpoints to retrieve data sets, and do something interesting with that data! The choice is up to you, but this is your opportunity to show us what else you can do with C#. You may use this page (Views/Home/MissionComplete.cshtml) to display the data.
         </p>
         <p>
-            Once you are done with all the works (e.g., including code formatting and cleaning up unused lines), please submit the project source code to your own GitHub repository and send us the link via email for further reviews.
+            Once you are done with all the works (e.g., including code formatting and cleaning up unused lines), please submit the project source code to your own GitHub repository and send us the link via email for further review.
         </p>
     </div>
-</div>
+    <div class="lower-controls text-center">
+        <button class="sky-neon" onclick="window.location.href = '@Url.Action("Index", "Home",new { h = true })'">OK</button>
+    </div>
 
-<div class="text-center">
-    <a class="btn btn-primary" href="@Url.Action("Index", "Home", new { h = true})" role="button">OK</a>
 </div>

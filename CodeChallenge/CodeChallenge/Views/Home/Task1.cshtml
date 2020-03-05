@@ -4,32 +4,39 @@
     ViewData["Title"] = "Task #1";
 }
 
-<div>
-    <h1 class="display-4 text-center">Task #1: Retrieve API Key</h1>
-    <p>It seems that agent RexGex has partially coded his program to call our mole to obtain the API key to access the data. However, it is not quite working yet and some troubleshooting will be required.</p>
+<div class="task1 common">
+    <div class="task-header">Task #1: Retrieve API Key</div>
+
     <ol>
-        <li>Look into HomeController.cs and review the instruction from #TODO comments under "Task1" controller action.</li>
+        <li>Go to the HomeController.cs file and review the instruction from #TODO comments under "Task1" controller action.</li>
         <li>Observe that the code is intended to connect to API call and retrieve an API key for the upcoming request. However, it is not working at this time.</li>
-        <li>Debug and step through the codes on HomeController.cs, Task1GetApiKeyResponse.cs, and TerminalService.cs to ensure that API Key is obtained successfully.</li>
-        <li>Once you have obtained the API key, go back to the terminal and type, <span class="terminal-code">validate task1 {API KEY}</span> (without the curly braces).</li>
+        <li>Debug and step through the code on HomeController.cs, Task1GetApiKeyResponse.cs, and TerminalService.cs to ensure that API Key is obtained successfully.</li>
+        <li>Once you have obtained the API key, go back to the <a href="https://codechallenge.rexelapps.com/" target="_blank">terminal</a>  and type, <span class="terminal-code">validate task1 {API KEY}</span> (without the curly braces).</li>
         <li>Click OK once the terminal gives you the green light.</li>
     </ol>
-</div>
-<div class="text-center form-row justify-content-md-center">
-    <div class="col-md-4 mb-3">
-        <label for="FirstName">API Key</label>
-        <input type="text" class="form-control" disabled value="@Model" required>
+
+    <div id="api-key-input">
+        <label for="FirstName">API Key:</label>
+        <input type="text" class="api-input" disabled value="@Model" required>
     </div>
-</div>
-<div class="text-center">
-    @if (!string.IsNullOrEmpty(Model))
-    {
-        <a class="btn btn-primary" href="@Url.Action("Task2", "Home")" role="button">OK</a>
-    }
-    else
-    {
-        <button type="button" class="btn btn-secondary disabled" href="#" role="button">OK</button>
-    }
-    <a class="btn btn-primary" href="@Url.Action("Task2", "Home")" role="button">Skip</a>
-    <a class="btn btn-primary" href="@Url.Action("Index", "Home", new { h = true})" role="button">Back</a>
+
+    <div class="lower-controls">
+
+        <div class="text-center">
+
+            <button class="sky-neon" onclick="window.location.href = '@Url.Action("Index", "Home",new { h = true })'">Back</button>
+
+            @if (!string.IsNullOrEmpty(Model))
+            {
+                <button class="submit-button" onclick="window.location.href = '@Url.Action("Task2", "Home")'">Submit</button>
+            }
+            else
+            {
+                <button type="button" class="submit-button submit-button-disabled disabled" href="#" role="button">Submit</button>
+            }
+
+            <button class="sky-neon" onclick="window.location.href = '@Url.Action("Task2", "Home")'">Skip</button>
+
+        </div>
+    </div>
 </div>

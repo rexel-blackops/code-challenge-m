@@ -3,65 +3,66 @@
     ViewData["Title"] = "Task #4";
 }
 
-<div>
-    <h1 class="display-4 text-center">Task #4: Identify Perpetrator</h1>
-    <div>Now that we identify the suspicious person who made the last change to the targeted asset, let's find out more who that person is</div>
-    <ol>
-        <li>View the #TODO comments under Task4 controller action.</li>
-        <li>Use the access code obtained from the terminal and the unique key in {user Id}-{user firstname}-{user lastname} to obtain user info from the user info API .</li>
-        <li>Review the result to locate the person last known location, go back to the terminal and type,  <span class="terminal-code">validate task4 {lat,lon}</span> (without the curly braces)".</li>
-        <li>Click OK once the terminal gives you the green light.</li>
-    </ol>
-</div>
-@if (Model != null)
-{
-    <h2>Suspect Dossier</h2>
-    <div class="text-center form-row justify-content-md-center">
-        <div class="row">
-            <div class="col-md-3">
-                <img class="img-fluid" src="@Model.UserImageUrl" alt="Perpetator Photo" />
-            </div>
-            <div class="col-md-9 mb-3">
-                <div class="row">
-                    <div class="col-4 mb-3">
-                        <label for="UserId">User ID</label>
-                        <input type="text" class="form-control" disabled value="@Model.UserId" required>
+    <div class="task4 common">
+        <div class="task-header">Task #4: Identify Perpetrator</div>
+        <div>Now that we have identified the suspicious person who made the last change to the targeted asset, let's find out more about that person.</div>
+        <div></div>
+        <ol>
+            <li>View the #TODO comments under Task4 controller action.</li>
+            <li>Use the access code obtained from the terminal and the unique key in {user Id}-{user firstname}-{user lastname} to obtain user info from the user info API .</li>
+            <li>Review the result to locate the person last known location, go back to the terminal and type,  <span class="terminal-code">validate task4 {lat,lon}</span> (without the curly braces)".</li>
+            <li>Click OK once the terminal gives you the green light.</li>
+        </ol>
+
+
+        @if (Model != null)
+        {
+            <div class="flex-table-container">
+                <div class="flex-table-item">
+                    <img class="img-fluid suspect-image" src="@Model.UserImageUrl" alt="Perpetator Photo" />
+                </div>
+                <div class="flex-table-item">
+                    <div class="row">
+                        <div class="input-field">
+                            <label for="UserId">User ID</label>
+                            <input type="text" class="form-control" disabled value="@Model.UserId" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="FirstName">First Name</label>
+                            <input type="text" class="form-control" disabled value="@Model.UserFirstName" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="LastName">Last Name</label>
+                            <input type="text" class="form-control" disabled value="@Model.UserLastName" required>
+                        </div>
                     </div>
-                    <div class="col-4 mb-3">
-                        <label for="FirstName">First Name</label>
-                        <input type="text" class="form-control" disabled value="@Model.UserFirstName" required>
-                    </div>
-                    <div class="col-4 mb-3">
-                        <label for="LastName">Last Name</label>
-                        <input type="text" class="form-control" disabled value="@Model.UserLastName" required>
-                    </div>
-                    <div class="col-4 mb-3">
-                        <label for="JobTitle">Job Title</label>
-                        <input type="text" class="form-control" disabled value="@Model.UserJobTitle" required>
-                    </div>
-                    <div class="col-4 mb-3">
-                        <label for="DeptCode">Department Code</label>
-                        <input type="text" class="form-control" disabled value="@Model.UserDepartmentCode" required>
-                    </div>
-                    <div class="col-4 mb-3">
-                        <label for="Location">Last Location</label>
-                        <input type="text" class="form-control" disabled value="@Model.LastLatLon" required>
+                    <div class="row text-center">
+                        <div class="input-field">
+                            <label for="JobTitle">Job Title</label>
+                            <input type="text" class="form-control" disabled value="@Model.UserJobTitle" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="DeptCode">Department Code</label>
+                            <input type="text" class="form-control" disabled value="@Model.UserDepartmentCode" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="Location">Last Location</label>
+                            <input type="text" class="form-control" disabled value="@Model.LastLatLon" required>
+                        </div>
                     </div>
                 </div>
             </div>
+        }
+        <div class="lower-controls text-center">
+            <button class="sky-neon" onclick="window.location.href = '@Url.Action("Task3", "Home")'">Back</button>
+            @if (Model != null)
+            {
+                <button class="submit-button" onclick="window.location.href = '@Url.Action("MissionComplete", "Home")'">Finish</button>
+            }
+            else
+            {
+                <button class="submit-button submit-button-disabled disabled">Finish</button>
+            }
+            @*<a class="btn btn-primary" href="@Url.Action("MissionComplete", "Home")" role="button">Skip</a>*@
         </div>
     </div>
-}
-<div class="text-center">
-    @if (Model != null)
-    {
-        <a class="btn btn-primary" href="@Url.Action("MissionComplete", "Home")" role="button">OK</a>
-    }
-    else
-    {
-        <button type="button" class="btn btn-secondary disabled" href="#" role="button">OK</button>
-    }
-    <a class="btn btn-primary" href="@Url.Action("MissionComplete", "Home")" role="button">Skip</a>
-    <a class="btn btn-primary" href="@Url.Action("Task3", "Home")" role="button">Back</a>
-</div>
-

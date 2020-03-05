@@ -19,22 +19,10 @@ html {
     }
 }
 
-.border-top {
-    border-top: 1px solid #e5e5e5;
-}
-
-.border-bottom {
-    border-bottom: 1px solid #e5e5e5;
-}
-
 .box-shadow {
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
-button.accept-policy {
-    font-size: 1rem;
-    line-height: inherit;
-}
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -44,105 +32,360 @@ html {
 }
 
 body {
+    background-color: black;
+    font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;
     /* Margin bottom by footer height */
-    margin-bottom: 60px;
 }
 
-.footer {
+.common {
+    font-size: 1vw;
+    color: whitesmoke;
     position: absolute;
-    bottom: 0;
-    width: 100%;
-    white-space: nowrap;
-    /* Set the fixed height of the footer here */
-    height: 60px;
-    line-height: 60px; /* Vertically center the text there */
+    height: 75%;
+    top: 2%;
+    padding: 0px 15px 15px 15px;
 }
 
-/* Black Ops stuff
--------------------------------------------------- */
-nav > div > h1 {
-    background-color: darkgray;
-    box-shadow: 5px 5px black;
-    margin: auto;
-    width: 100%;
-    color: blue;
+.task-header {
+    font-size: 1.5vw;
+    font-weight: bolder;
+    color: lime;
+    margin-bottom: 2%;
+    /* text-align: center; */
+    background: -webkit-linear-gradient(limegreen, #008F11);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-h1, h2 {
-    border-style: double;
+.form-control:disabled {
+    background-color: black;
+}
+
+label {
+    float: left;
+}
+
+@media (min-width: 600px) .col-md-3 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+body > div.container {
+    border-width: 5px;
     border-color: white;
-    color: yellow;
-    text-align: center;
-    margin-top: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    box-shadow: 5px 5px gray;
+    border-style: double;
+    background-color: darkgray;
+    box-shadow: 10px 10px black;
 }
 
-body {
-    color: black;
+body > header > nav > div {
     background-color: #00a;
-    font-family: Consolas,monaco,monospace;
 }
 
-    body > div.container {
-        border-width: 5px;
-        border-color: white;
-        border-style: double;
-        background-color: darkgray;
-        box-shadow: 10px 10px black;
-    }
+.form-control {
+    font-size: 1vw;
+    width: 100%;
+    height: auto;
+    color: #008F11;
+}
 
-    body > header > nav > div {
-        background-color: #00a;
-    }
+.table {
+    width: 49%;
+    display: inline-table;
+    text-align: center;
+    border-collapse: collapse;
+    overflow: auto;
+}
 
-.btn-primary, button.disabled {
-    background-color: #0e7a0d;
-    border-color: #0e7a0d;
-    border-radius: 0px;
-    box-shadow: 5px 5px black;
+table caption {
+    caption-side: top;
+    font-size: 1em;
+    /*margin: .5em 0 .75em;*/
 }
 
 .table th {
+    padding: 0px;
     color: yellow;
 }
 
 table, th, td, .table th, .table td {
-    border: 3px dashed white;
-    box-shadow: 5px 5px gray;
+    padding: 0px;
+    box-shadow: 2px 2px gray;
 }
 
-footer {
-    text-transform: uppercase;
-    color: white;
+.suspect-image {
+    max-width: 7vw;
+    height: auto;
+    width: 100%; /* ie8 */
+}
+
+/*Layout*/
+.stretchy-container {
+    width: 99%;
+    height: 100%;
+    overflow: hidden;
+    background-color: black;
+    position: absolute;
+    top: 0;
+}
+
+.aspect-container {
+    width: 100%;
+    padding-top: 51.25%;
+    position: relative;
+}
+
+.flex-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    /*flex-direction: row;*/
+    flex-wrap: nowrap;
+    /*justify-content: flex-start;*/
+    align-content: center;
+    align-items: stretch;
+}
+
+.flex-container:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.flex-item:nth-child(1) {
+    order: 0;
+    flex: 1 1 auto;
+    align-self: auto;
+}
+
+.flex-item:nth-child(2) {
+    order: 0;
+    flex: 0 0 27%;
+    align-self: auto;
+}
+
+.main-terminal {
+    background-image: url('/Images/SpyDefault.png');
+    background-position: right center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100%;
+    position: relative;
+}
+
+.info-center {
+    display: inline-block;
+    position: relative;
+    width: 75%;
+    left: 20%;
+    top: 7%;
+    height: 85%;
+}
+
+
+.side-terminal {
+    background-image: url('/Images/SpyUI-state01.png');
+    background-position: left center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+.side-terminal-image {
+    background-position: left center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    /*position: absolute;*/
+}
+
+.img-state01 {
+    background-image: url('/Images/SpySide01.png');
+}
+
+.img-state02 {
+    background-image: url('/Images/SpySide02.png');
+}
+
+.img-state03 {
+    background-image: url('/Images/SpySide03.png');
+}
+
+.img-state04 {
+    background-image: url('/Images/SpySide04.png');
+}
+
+.img-state05 {
+    background-image: url('/Images/SpySide05.png');
+}
+
+@keyframes backgroundchangeFadeInOut {
+    0% {
+        opacity: 0;
+    }
+
+    11.11% {
+        opacity: 1;
+    }
+
+    33.33% {
+        opacity: 1;
+    }
+
+    44.44% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.fadein {
+    position: relative;
+}
+
+    .fadein div {
+        opacity: 0;
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+
+.side-terminal div {
+    animation-name: backgroundchangeFadeInOut;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 2.5s;
+    -webkit-animation-name: backgroundchangeFadeInOut;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 2.5s;
+}
+
+.fadein div:nth-of-type(1) {
+    animation-delay: .01s;
+}
+
+.fadein div:nth-of-type(2) {
+    animation-delay: .5s;
+}
+
+.fadein div:nth-of-type(3) {
+    animation-delay: 1s;
+}
+
+.fadein div:nth-of-type(4) {
+    animation-delay: 1.5s;
+}
+
+.fadein div:nth-of-type(5) {
+    animation-delay: 2s;
+}
+
+.task-navigation-list {
+    width: 15%;
+    height: 31%;
+    z-index: 9999;
+    position: absolute;
+    top: 40%;
+    font-size: 1.4vw;
+    font-weight: bolder;
+    color: lime;
+    margin-bottom: 2%;
+    right: 11%;
+    line-height: 180%;
+    box-shadow: inset 0 0 10px #24a924;
+}
+
+.task-navigation-list ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 10%;
+    top: 10%;
+}
+
+.task-navigation-list li:hover {
+    color: red;
+}
+
+.task-navigation-list a {
+    color: lime;
+}
+
+.task-selected a {
+    background-color: limegreen;
+    color: whitesmoke;
+}
+
+@keyframes fadeIn {
+    60% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/*Layout End*/
+
+/*index page*/
+
+.start-instructions {
+    font-size: 1.1vw;
+    color: whitesmoke;
+    position: absolute;
+    height: 75%;
+    top: 3%;
+    padding: 0px 15px 15px 15px;
+}
+
+.initiate-header {
+    font-size: 2vw;
+    font-weight: bolder;
+    color: #008F11;
+    margin-bottom: 7%;
     text-align: center;
-    background-color: #bb0000;
+    background: -webkit-linear-gradient(#00FF41, #008F11);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-input.form-control {
-    border-radius: 0px;
-    box-shadow: 5px 5px gray;
+.index-page-warning-msg {
+    position: absolute;
+    top: 55%;
 }
 
 .terminal-code {
-    background-color: gray;
+    background-color: black;
     color: yellow;
 }
 
 .blinking {
-    animation: blinkingText 1s infinite;
-    background-color: red;
+    animation: blinkingText 1.5s infinite;
     padding: 5px 10px 5px 10px;
 }
 
 @keyframes blinkingText {
     0% {
-        color: white;
+        color: red;
     }
 
     49% {
-        color: white;
+        color: red;
     }
 
     60% {
@@ -154,6 +397,225 @@ input.form-control {
     }
 
     100% {
-        color: white;
+        color: red;
+    }
+}
+
+/*index page end*/
+
+/*Task 1*/
+
+.api-input {
+    color: lime;
+    background-color: black;
+}
+
+#api-key-input {
+    FONT-WEIGHT: 100;
+    position: absolute;
+    top: 62%;
+    left: 30%;
+    margin-bottom: 7%;
+}
+
+/*task 1 end*/
+
+
+/*task 2*/
+
+.table-task2 {
+    /*position: absolute;*/
+    width:100%;
+    font-size: .8vw;
+    /*bottom: 9%;*/
+    left: 4%;
+}
+/*task 2 end*/
+
+/*task 4*/
+
+.flex-table-container {
+    position: absolute;
+    top: 50%;
+    left: 4%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    /*flex-direction: row;*/
+    flex-wrap: nowrap;
+    /*justify-content: flex-start;*/
+    align-content: center;
+    align-items: stretch;
+}
+
+.flex-table-container:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.flex-table-item:nth-child(1) {
+    order: 0;
+    flex: 0 0 27%;
+    align-self: auto;
+}
+
+.flex-table-item:nth-child(2) {
+    order: 0;
+    flex: 1 1 auto;
+    align-self: auto;
+}
+
+/*task 4 end*/
+
+
+/*misson complete*/
+
+.misson-accomplished-header {
+    font-size: 2vw;
+    font-weight: bolder;
+    color: #008F11;
+    /* margin-bottom: 7%; */
+    text-align: center;
+    background: -webkit-linear-gradient(#00FF41, #008F11);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.accomplished-image {
+       
+    height: 30%;
+    width: 100%;
+}
+
+#wick {
+    width: auto;
+    height: 94%;
+}
+
+.misson-complete-message {
+    font-size: 1vw;
+}
+
+/*misson complete end*/
+
+/*Buttons*/
+
+.lower-controls {
+    width: 42%;
+    position: absolute;
+    right: 28%;
+    bottom: 2%;
+}
+
+.super-cool-btn {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    cursor: pointer;
+    margin: 20px;
+}
+
+button {
+    font-size: 20px;
+    width: 31%;
+    height: auto;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: lato;
+    font-size: 1.1vw;
+}
+
+.sky-neon {
+    color: white;
+    /*background-color: #77BAE0;*/
+    background-color: black;
+    -webkit-transition: .4s all ease-in;
+    transition: .4s all ease-in;
+    /*border: 2px solid transparent;*/
+    border: 2px solid #86dbff;
+    box-shadow: inset 0 0 20px #86dbff;
+}
+
+
+.sky-neon:hover, .sky-neon:focus {
+    -webkit-box-shadow: 0px 0px 20px 15px #3cc6d8;
+    box-shadow: 0px 0px 30px 20px #3cc6d8;
+    background-color: #d7f3ff;
+    text-shadow: 2px 2px 7px #65b0da;
+}
+
+.button-text {
+    font-weight: bold;
+}
+
+.submit-button {
+    color: white;
+    /*background-color: #77BAE0;*/
+    background-color: black;
+    -webkit-transition: .4s all ease-in;
+    transition: .4s all ease-in;
+    /*border: 2px solid transparent;*/
+    border: 2px solid #008F11;
+    box-shadow: inset 0 0 20px #008F11;
+}
+
+.submit-button:hover, .submit-button :focus {
+    -webkit-box-shadow: 0px 0px 20px 15px #00FF41;
+    box-shadow: 0px 0px 30px 20px #00FF41;
+    background-color: #c3f3cf;
+    text-shadow: 2px 2px 7px #00FF41;
+}
+
+.submit-button-disabled {
+    border: 2px solid red;
+    box-shadow: inset 0 0 20px red;
+    opacity: .5;
+}
+
+.submit-button-disabled:hover, .submit-button :focus {
+    -webkit-box-shadow: 0px 0px 20px 15px red;
+    box-shadow: 0px 0px 30px 20px red;
+    background-color: black;
+    text-shadow: 2px 2px 7px black;
+}
+
+/*ButtonsEnd*/
+
+.suspect-input {
+    white-space: nowrap;
+    max-width: 99%;
+}
+
+.input-field {
+    width: 30%;
+    display: inline-block;
+    text-align: center;
+    white-space: normal;
+    padding: 0px 5px 1px 5px;
+}
+
+.suspect-found {
+    font-size: 1.5vw;
+}
+
+.task3-input-field {
+    background-color: black;
+    color: lime;
+    text-align: center;
+    font-size: 1vw;
+    box-shadow: inset 0 0 5px #24a924;
+}
+
+@media screen and (max-width: 1080px) {
+    .table {
+        font-size: .7vw;
+    }
+
+    .lower-controls {
+        bottom: -6%;
     }
 }

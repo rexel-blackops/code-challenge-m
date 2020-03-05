@@ -2,44 +2,43 @@
 @{
     ViewData["Title"] = "Task #3";
 }
-<div>
-    <h1 class="display-4 text-center">Task #3: Investigate Change History</h1>
-    <div>Our analyst team returns back to us. They suspect something does not add up here. Further investigation will be required</div>
+<div class="task3 common">
+    <div class="task-header">Task #3: Investigate Change History</div>
     <ol>
         <li>Adapt the code from task #2 to obtain the list of assets on Task3 controller action.</li>
         <li>Find out which asset has Value and Quantity set to NULL.</li>
         <li>Call the API provided inside Task3 code with the target asset ID to retrieve the history log of users who manage this asset.</li>
         <li>Find the last user that modified this asset, go back to the terminal and type,  <span class="terminal-code">validate task3 {user Id}-{user firstname}-{user lastname} </span>(without the curly braces).</li>
-        <li>Click OK once the terminal gives you the green light along with another access code for the internal user info API.</li>
+        <li>Click Submit once the terminal gives you the green light along with another access code for the internal user info API.</li>
     </ol>
-</div>
-@if (Model != null && !string.IsNullOrEmpty(Model.UserHash))
-{
-    <h2>Possible Suspect Found!</h2>
-    <div class="text-center form-row justify-content-md-center">
-        <div class="col-md-3 mb-3">
-            <label for="FirstName">User ID</label>
-            <input type="text" class="form-control" disabled value="@Model.UserId" required>
+    @if (Model != null && !string.IsNullOrEmpty(Model.UserHash))
+    {
+        <div class="suspect-found blinking text-center">Possible Suspect Found!</div>
+        <div class="suspect-input text-center">
+            <div class="input-field">
+                <label for="FirstName">User ID</label>
+                <input type="text" class="task3-input-field" disabled value="@Model.UserId" required>
+            </div>
+            <div class="input-field">
+                <label for="FirstName">First Name</label>
+                <input type="text" class="task3-input-field" disabled value="@Model.UserFirstName" required>
+            </div>
+            <div class="input-field">
+                <label for="FirstName">Last Name</label>
+                <input type="text" class="task3-input-field" disabled value="@Model.UserLastName" required>
+            </div>
         </div>
-        <div class="col-md-3 mb-3">
-            <label for="FirstName">First Name</label>
-            <input type="text" class="form-control" disabled value="@Model.UserFirstName" required>
-        </div>
-        <div class="col-md-3 mb-3">
-            <label for="FirstName">Last Name</label>
-            <input type="text" class="form-control" disabled value="@Model.UserLastName" required>
-        </div>
+    }
+    <div class="lower-controls text-center">
+        <button class="sky-neon" onclick="window.location.href = '@Url.Action("Task2", "Home")'">Back</button>
+        @if (Model != null && Model.UserHash == "Mjk0MzE0LUdlbWluby1Eb21pbm8=")
+        {
+            <button class="submit-button" onclick="window.location.href = '@Url.Action("Task4", "Home")'">Submit</button>
+        }
+        else
+        {
+            <button class="submit-button submit-button-disabled disabled">Submit</button>
+        }
+        <button class="sky-neon" onclick="window.location.href = '@Url.Action("Task4", "Home")'">Skip</button>
     </div>
-}
-<div class="text-center">
-    @if (Model != null && Model.UserHash == "Mjk0MzE0LUdlbWluby1Eb21pbm8=")
-    {
-        <a class="btn btn-primary" href="@Url.Action("Task4", "Home")" role="button">OK</a>
-    }
-    else
-    {
-        <button type="button" class="btn btn-secondary disabled" href="#" role="button">OK</button>
-    }
-    <a class="btn btn-primary" href="@Url.Action("Task4", "Home")" role="button">Skip</a>
-    <a class="btn btn-primary" href="@Url.Action("Task2", "Home")" role="button">Back</a>
 </div>
